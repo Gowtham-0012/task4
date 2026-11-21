@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A real-time weather dashboard powered by Open-Meteo.">
+  <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div class="brand">
+        <span class="brand-icon" aria-hidden="true">☀️</span>
+        <div>
+          <p class="eyebrow">LIVE WEATHER</p>
+          <h1>Weather Dashboard</h1>
+        </div>
+      </div>
+      <span class="api-label"><span class="live-dot"></span> Live data</span>
+    </header>
+
+    <section class="search-panel" aria-label="Search weather">
+      <label for="cityInput">Check the weather in your city</label>
+      <form id="searchForm" class="search-form">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input id="cityInput" type="text" placeholder="Enter a city (e.g. Chennai)" autocomplete="off" required>
+        <button id="searchButton" type="submit">Search</button>
+      </form>
+      <p id="statusMessage" class="status" role="status" aria-live="polite">Try searching for Chennai, London or Tokyo.</p>
+    </section>
+
+    <section id="weatherCard" class="weather-card" aria-label="Current weather">
+      <div class="weather-top">
+        <div>
+          <p class="eyebrow">CURRENT WEATHER</p>
+          <h2 id="cityName">Search for a city</h2>
+          <p id="locationDetails" class="location-details">Your weather will appear here</p>
+        </div>
+        <div class="weather-symbol" id="weatherIcon" aria-hidden="true">🌤️</div>
+      </div>
+
+      <div class="temperature-row">
+        <p id="temperature" class="temperature">--<span>°C</span></p>
+        <div>
+          <p id="condition" class="condition">Waiting for a city</p>
+          <p id="feelsLike" class="feels-like">Live conditions</p>
+        </div>
+      </div>
+
+      <div class="metrics">
+        <article class="metric">
+          <div class="metric-icon humidity-icon" aria-hidden="true">💧</div>
+          <div><p class="metric-label">Humidity</p><p id="humidity" class="metric-value">--<span>%</span></p></div>
+        </article>
+        <article class="metric">
+          <div class="metric-icon wind-icon" aria-hidden="true">💨</div>
+          <div><p class="metric-label">Wind speed</p><p id="wind" class="metric-value">--<span> km/h</span></p></div>
+        </article>
+        <article class="metric">
+          <div class="metric-icon rain-icon" aria-hidden="true">🌡️</div>
+          <div><p class="metric-label">Feels like</p><p id="feelsMetric" class="metric-value">--<span>°C</span></p></div>
+        </article>
+      </div>
+      <p id="updatedAt" class="updated-at"></p>
+    </section>
+
+    <footer>
+      <p>Weather data provided by <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>. No API key required.</p>
+    </footer>
+  </main>
+</body>
+</html>
